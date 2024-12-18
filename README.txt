@@ -5,10 +5,6 @@ Interactions:
 - Prompts: input/provide path to csv file
 - Response: the code loads the data and creates nodes for each episode in the graph. Each episode is represented by a Node object 
   with attributes of the episode based on the CSV data.
-- Example: 
-  graph = GraphBuilder(csv_file='./Desktop/507_final_data.csv')
-  graph.load_data()
-  graph.build_graph()
 2. Find Most Similar Episodes
 - The user can ask the program to find the most similar episodes to a given episode. The program compares episodes based on shared attributes 
   like guest stars, directors, writers, and IMDb ratings. The program will automatically print the top 10 similar episodes with a list of 
@@ -16,26 +12,6 @@ Interactions:
 - Prompt: the user will provide the episode id (ShowName_S{seasonnumber}_E{episode number}) of an episode of interest and optionally fill the 
   argument top_n with the desired number of similar episodes they want to receive
 - Response: The program finds and displays the top N most similar episodes (default is 10). It shows the similarity score and the shared attributes between each pair of episodes. If there is not an episode with that ID, it will print "Error: Episode {episode_of_interest} not found in the graph."
-- Example:
-  graph.find_most_similar_episodes('TheSimpsons_S2_E4', top_n=5)
-      Episode TheSimpsons_S1_E11: Similarity score = 2
-        - director: {'Wes Archer'}
-        - writer: {' John Swartzwelder'}
-      
-      Episode TheSimpsons_S2_E5: Similarity score = 2
-        - air_month_year: ['November', '1990']
-        - shortened_viewer: [26.1]
-      
-      Episode TheSimpsons_S6_E10: Similarity score = 2
-        - director: {'Wes Archer'}
-        - imdb_rating: [8.0]
-      
-      Episode TheSimpsons_S7_E18: Similarity score = 2
-        - director: {'Wes Archer'}
-        - imdb_rating: [8.0]
-      
-      Episode FamilyGuy_S2_E8: Similarity score = 1
-        - imdb_rating: [8.0]
 3. Find Shortest Path Between Episodes
 - The user can find the shortest path between two episodes of interest based on shared attributes
 - Prompt: The user will enter the episode IDs of two episodes into the find_shortest_path function from the GraphBuilder class to find the 
